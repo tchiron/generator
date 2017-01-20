@@ -15,13 +15,13 @@ function generer() {
 	//	Vérification que nb_caractere_mdp est bien un nombre et supérieur à 0 dans une boucle while
 	do {
 		if (Number.isNaN(nb_caractere_mdp) === true) {
-			nb_caractere_mdp = Math.trunc(Number(prompt("Vous n'avez pas entré un nombre, \nVeuillez entrer le nombre de caratère de votre mot de passe :")));
+			nb_caractere_mdp = acquisition_nombre_caractere("Vous n'avez pas entré un nombre, \nVeuillez entrer le nombre de caratère de votre mot de passe :");
 		}
 		else if (nb_caractere_mdp <= 0) {
-			nb_caractere_mdp = Math.trunc(Number(prompt("Vous avez entré un nombre inférieur ou égal à 0, \nVeuillez entrer le nombre de caratère de votre mot de passe :")));
+			nb_caractere_mdp = acquisition_nombre_caractere("Vous avez entré un nombre inférieur ou égal à 0, \nVeuillez entrer le nombre de caratère de votre mot de passe :");
 		}
 		else {
-			nb_caractere_mdp = Math.trunc(Number(prompt("Entrez le nombre de caratère de votre mot de passe :")));
+			nb_caractere_mdp = acquisition_nombre_caractere("Entrez le nombre de caratère de votre mot de passe :");
 		}
 	} while (Number.isNaN(nb_caractere_mdp) === true || nb_caractere_mdp <= 0);
 	
@@ -39,9 +39,10 @@ function generer() {
 }
 
 /*
-Fonction qui génére un mot de passe avec comme paramètre :
+Fonction generer_mdp qui génére un mot de passe avec comme paramètre :
 tab : un tableau contenant tout les caractères servant à créer le mot de passe
 nb_max : le nombre de caractère max du mot de passe
+La fonction retournera le mot de passe généré
 */
 function generer_mdp(tab,nb_max) {
 	var tab_max = tab.length;
@@ -52,4 +53,13 @@ function generer_mdp(tab,nb_max) {
 		mdp += tab[nb];
 	}
 	return mdp;
+}
+
+/*
+Fonction acquisition_nombre_caractere qui permettra d'envoyer une boite de dialogue avec un message personnalisé pour récupérer le nombre de caractère maximum du mot de passe que l'on doit générer
+Le message personnalisé sera renseigné en paramètre de la fonction
+La fonction retournera le nombre saisi par l'utilisateur
+*/
+function acquisition_nombre_caractere(message) {
+	return Math.trunc(Number(prompt(message)));
 }
