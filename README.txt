@@ -5,11 +5,11 @@ Description :
 
 Installation :
 	- Placez le fichier .js dans votre dossier puis faites appel à lui grâce à la balise :
-	<script type="text/javascript" src="LienDuFichier.js"></script>
+	<script type="text/javascript" src="Lien/Vers/LeFichier.js"></script>
 
 Utilisation :
 	- Pour faire appel à la fonction un bouton doit être créé avec l'attribut :
-	onclick="generer()"
+	onclick="generateur()"
 	Le bouton peut être n'importe où dans le formulaire, la logique voudrait qu'il soit à côté de l'input du mot de passe.
 	- Puis rechercher la ligne suivante dans le fichier .js :
 	window.document.exemple_formulaire.mdp.value
