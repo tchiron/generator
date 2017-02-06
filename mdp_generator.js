@@ -1,10 +1,11 @@
-function generateur(caracteres, messages, nb_caractere_defaut, nb_caractere_min) {
+function generateur(caracteres, messages, nb_caractere_defaut, nb_caractere_min, nb_caractere_max) {
 	/*
 	Paramètre de la fonction
 		caracteres : doit être un tableau, contenant au minimum 2 autres tableaux des caractères pouvant servir à faire un mot de passe
 		messages : doit être un tableau, contenant les messages à afficher à l'utilisateur, 3 messages au minimum
 		nb_caractere_defaut : doit être un nombre, servant de nombre par défaut pour la longueur du mot de passe
 		nb_caractere_min : doit être un nombre, servant de limite inférieure de nombre de caractère pour le mot de passe
+		nb_caractere_max : doit être un nombre, servant de limite supérieure de nombre de caractère pour le mot de passe
 	
 	Déclaration des variables par défaut
 		caracteres_defaut : tableau contenant
@@ -23,6 +24,7 @@ function generateur(caracteres, messages, nb_caractere_defaut, nb_caractere_min)
 		"Entrez le nombre de caratère de votre mot de passe :",
 		"Vous n'avez pas entré un nombre, \nVeuillez entrer le nombre de caratère de votre mot de passe :",
 		"Vous avez entré un nombre inférieur ou égal à 0, \nVeuillez entrer le nombre de caratère de votre mot de passe :",
+		"Vous avez entré un nombre de caractère trop grand, \nVeuillez entrer le nombre de caractère de votre mot de passe",
 		"Nous vous conseillons de noter le mot de passe sur un papier pour ne pas l'oublier."
 	];
 	
@@ -75,18 +77,29 @@ function generateur(caracteres, messages, nb_caractere_defaut, nb_caractere_min)
 	}
 	
 	/*
+	Enfin que nb_caractere_max soit bien un nombre (ajout d'une exeption pour NaN qui est détecté comme un nombre par typeof) et pas inférieur ou égal au nombre de caractère minimum
+	Sinon nous réinitialisons la variable
+	*/
+	if (typeof nb_caractere_max !== "number" || Number.isNaN(nb_caractere_max) === true || nb_caractere_max <= nb_caractere_min) {
+		nb_caractere_max = ""; // Ainsi, il n'y a pas de nombre maximal
+	}
+	
+	/*
 	Déclaration de la variable
 		nb_caractere_mdp : variable qui contiendra un nombre donné par l'utilisateur, ce nombre servira à générer un mot de passe de cette longueur
 	*/
 	var nb_caractere_mdp = acquisition_nombre_caractere(messages[0], nb_caractere_defaut);
 	
-	//	Vérification que nb_caractere_mdp est bien un nombre et supérieur à 0
-	while (Number.isNaN(nb_caractere_mdp) === true || nb_caractere_mdp < nb_caractere_min) {
+	//	Vérification que nb_caractere_mdp est bien un nombre, supérieur ou égal au nombre minimum de caractère et inférieur ou égal au nombre maximum de caractère
+	while (Number.isNaN(nb_caractere_mdp) === true || nb_caractere_mdp < nb_caractere_min || (nb_caractere_max !== "" && nb_caractere_mdp > nb_caractere_max)) {
 		if (Number.isNaN(nb_caractere_mdp) === true) {
 			nb_caractere_mdp = acquisition_nombre_caractere(messages[1], nb_caractere_defaut);
 		}
 		else if (nb_caractere_mdp < nb_caractere_min) {
 			nb_caractere_mdp = acquisition_nombre_caractere(messages[2], nb_caractere_defaut);
+		}
+		else if (nb_caractere_max !== "" && nb_caractere_mdp > nb_caractere_max) {
+			nb_caractere_mdp = acquisition_nombre_caractere(messages[3], nb_caractere_defaut)
 		}
 	}
 	
@@ -124,8 +137,8 @@ function generateur(caracteres, messages, nb_caractere_defaut, nb_caractere_min)
 	window.document.exemple_formulaire.mdp.value = mot_de_passe;
 	
 	// Puis un message qui conseille de noter le mot de passe sur un papier, si celui est présent dans la variable messages
-	if (messages.length >= 3) {
-		alert(messages[3]);
+	if (messages.length >= 4) {
+		alert(messages[4]);
 	}
 }
 
