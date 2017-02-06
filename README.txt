@@ -35,14 +35,14 @@ Utilisation :
 						"Nous vous conseillons de noter le mot de passe sur un papier pour ne pas l'oublier."
 					];
 				Par défaut, celui affiché en exemple sera utilisé.
-			Le troisième argument doit être un nombre. Il définira le nombre de caractère qui s'affichera par défaut lorsque nous demanderons à l'utilisateur d'entrer un nombre pour la longueur de son mot de passe.
-				Par défaut, rien de s'affiche.
-			Le quatrième argument doit être un nombre. Il définira le nombre de caractère minimum du mot de passe.
+			Le troisième argument doit être un nombre. Il définira le nombre de caractère minimum du mot de passe.
 				Exemple :
 					NombreMinimumDeCaractère = 1;
 				Par défaut, celui affiché en exemple sera utilisé. Ainsi, il ne peut avoir de demande de mot de passe de zéro caractère.
-			Le cinquième argument doit être un nombre. Il définira le nombre de caractère maximum du mot de passe.
+			Le quatrième argument doit être un nombre. Il définira le nombre de caractère maximum du mot de passe.
 				Par défaut, il n'y a pas de nombre de caractère maximum.
+			Le cinquième argument doit être un nombre. Il définira le nombre de caractère qui s'affichera comme texte par défaut lorsque nous demanderons à l'utilisateur d'entrer un nombre pour la longueur de son mot de passe.
+				Par défaut, rien de s'affiche.
 			Si aucun des arguments n'est passé en paramètre ou si ceux-ci sont erroné, les valeurs par défaut citées seront alors utilisé.
 	- Puis rechercher la ligne suivante dans le fichier .js :
 		window.document.exemple_formulaire.mdp.value
