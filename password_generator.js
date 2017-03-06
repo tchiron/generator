@@ -1,7 +1,7 @@
 function generateur(caracteres, messages, nb_caractere_min, nb_caractere_max, nb_caractere_defaut) {
 	/*
 	Paramètre de la fonction
-		caracteres : doit être un tableau, contenant au minimum 2 autres tableaux des caractères pouvant servir à faire un mot de passe
+		caracteres : doit être un tableau, contenant au minimum 2 chaînes de caractère des caractères pouvant servir à faire un mot de passe
 		messages : doit être un tableau, contenant les messages à afficher à l'utilisateur, 3 messages au minimum
 		nb_caractere_min : doit être un nombre, servant de limite inférieure de nombre de caractère pour le mot de passe
 		nb_caractere_max : doit être un nombre, servant de limite supérieure de nombre de caractère pour le mot de passe
@@ -9,16 +9,16 @@ function generateur(caracteres, messages, nb_caractere_min, nb_caractere_max, nb
 	
 	Début de déclaration des variables par défaut
 		caracteres_defaut : tableau contenant
-			- un tableau de tous les chiffres entier, de 0 à 9, pouvant servir à générer un mot de passe
-			- un tableau de toutes les lettres minuscules, de l'alphabet latin, pouvant servir à générer un mot de passe
-			- un tableau de toutes les lettres majuscules, de l'alphabet latin, pouvant servir à générer un mot de passe
+			- une chaîne de caractère de tous les chiffres entier, de 0 à 9, pouvant servir à générer un mot de passe
+			- une chaîne de caractère de toutes les lettres minuscules, de l'alphabet latin, pouvant servir à générer un mot de passe
+			- une chaîne de caractère de toutes les lettres majuscules, de l'alphabet latin, pouvant servir à générer un mot de passe
 		messages_defaut : tableau contenant les messages à afficher à l'utilisateur
 	Ces variables seront utilisé si les paramètres entrés dans la fonction generateur sont erroné ou non défini
 	*/
 	var caracteres_defaut = [
-		[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-		["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
-		["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+		"0123456789",
+		"abcdefghijklmnopqrstuvwxyz",
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	];
 	var messages_defaut = [
 		"Entrez le nombre de caratère de votre mot de passe :",
@@ -31,7 +31,7 @@ function generateur(caracteres, messages, nb_caractere_min, nb_caractere_max, nb
 	Fin de déclaration des variables par défaut
 	
 	Début de vérification des paramètres de la fonction
-		D'abord que caracteres soit bien un tableau et qu'il contient bien 2 tableaux au minimum
+		D'abord que caracteres soit bien un tableau et qu'il contient bien 2 chaines de caractère au minimum
 		Ensuite que messages soit bien un tableau et qu'il contient bien 3 messages au minimum
 		Puis que nb_caractere_min soit bien un nombre (ajout d'une exeption pour NaN qui est détecté comme un nombre par typeof), sinon nous mettrons une valeur par défaut
 		Après que nb_caractere_max soit bien un nombre (ajout d'une exeption pour NaN qui est détecté comme un nombre par typeof) et pas inférieur ou égal au nombre de caractère minimum, sinon nous réinitialisons la variable
@@ -39,7 +39,7 @@ function generateur(caracteres, messages, nb_caractere_min, nb_caractere_max, nb
 	*/
 	if (Array.isArray(caracteres) === true && caracteres.length > 1) {
 		for (var i = 0; i < caracteres.length; i++) {
-			if (Array.isArray(caracteres[i]) === false || caracteres[i].length === 0) {
+			if (typeof caracteres[i] !== "string" || caracteres[i] === "") {
 				i = caracteres.length;
 				caracteres = caracteres_defaut;
 			}
