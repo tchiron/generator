@@ -1,37 +1,37 @@
 # Listes des erreurs :
 
-* TabCar-Und :  
-La variable du tableau de caractère est non-défini
-
-* TabCar-NaA :  
-La variable du tableau de caractère n'est pas un tableau
-
-* TabCar-Low :  
-La variable du tableau de caractère ne contient pas assez de valeur
-
-* TabCar-NaS :  
-Une valeur contenu dans la variable du tableau de caractère n'est pas une chaîne de caractère
+* NbCarMax-Low :  
+La valeur de la variable du nombre de caractère maximum est inférieure à celle de la variable du nombre de caractère minimum
 
 * TabCar-Emp :  
 Une partie contenu dans la variable du tableau de caractère est vide
 
-* TabMes-Und :  
-La variable du tableau de message est non-défini
+* TabCar-Low :  
+La variable du tableau de caractère ne contient pas assez de valeur
 
-* TabMes-NaA :  
-La variable du tableau de message n'est pas un tableau
+* TabCar-NaA :  
+La variable du tableau de caractère n'est pas un tableau
 
-* TabMes-Low :  
-La variable du tableau de message ne contient pas assez de valeur
+* TabCar-NaS :  
+Une valeur contenu dans la variable du tableau de caractère n'est pas une chaîne de caractère
 
-* TabMes-NaS :  
-Une valeur contenu dans la variable du tableau de message n'est pas une chaîne de caractère
+* TabCar-Und :  
+La variable du tableau de caractère est non-défini
 
 * TabMes-Emp :  
 Une partie contenu dans la variable du tableau de message est vide
 
-* NbCarMax-Low :  
-La valeur de la variable du nombre de caractère maximum est inférieure à celle de la variable du nombre de caractère minimum
+* TabMes-Low :  
+La variable du tableau de message ne contient pas assez de valeur
+
+* TabMes-NaA :  
+La variable du tableau de message n'est pas un tableau
+
+* TabMes-NaS :  
+Une valeur contenu dans la variable du tableau de message n'est pas une chaîne de caractère
+
+* TabMes-Und :  
+La variable du tableau de message est non-défini
 
 
 ## Lexique :
