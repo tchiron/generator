@@ -94,39 +94,9 @@ function generateur(caracteres, messages, nb_caractere_min, nb_caractere_max, nb
 		}
 	}
 	/*
-	Fin de vérification de la variable
-	
-	Début de répartition du nombre de caractère du mot de passe équitable entre les différents types de caractère (entier, lettre minuscule et majuscule)
+	Génération du mot de passe
 	*/
-	var nb_chaque_caractere = Math.trunc(nb_caractere_mdp / caracteres.length);
-	var nb_chaque_caracteres = [];
-	var quotient = nb_caractere_mdp % caracteres.length;
-	for (var i = 0; i < caracteres.length; i++) {
-		if (quotient !== 0) {
-			nb_chaque_caracteres.push(nb_chaque_caractere + 1);
-			quotient--;
-		}
-		else {
-			nb_chaque_caracteres.push(nb_chaque_caractere);
-		}
-	}
-	/*
-	Fin de répartition du nombre de caractère
-	
-	Début de sélection de caractère de différent type
-	*/
-	var caracteres_mdp = [];
-	for (var i = 0; i < caracteres.length; i++) {
-		for (var j = 0; j < nb_chaque_caracteres[i]; j++) {
-			caracteres_mdp.push(caractere_aleatoire(caracteres[i]));
-		}
-	}
-	/*
-	Fin de sélection des caractères
-	
-	Génération du mot de passe à partir des caractères sélectionnés
-	*/
-	var mot_de_passe = generer(caracteres_mdp);
+	var mot_de_passe = generer(caracteres, nb_caractere_mdp);
 	/*
 	Retournes le mot de passe généré dans l'input du formulaire d'inscription
 		window.document.NomDuFormulaire.NomDeInput.value
@@ -152,24 +122,54 @@ function caractere_aleatoire(tab) {
 }
 
 /*
-Fonction generer qui mélange les caractères pour en faire un mot de passe
-	tab : un tableau contenant tous les caractères servant à créer le mot de passe
+Fonction generer qui créé le mot de passe
+	caracteres : un tableau contenant tous les caractères pouvant servir à créer le mot de passe
+	nb_caractere_mdp : le nombre de caratère du mot de passe
 La fonction retournera le mot de passe généré
 */
-function generer(tab) {
+function generer(caracteres, nb_caractere_mdp) {
+	/*
+	Répartition du nombre de caractère du mot de passe équitable entre les différents types de caractère (entier, lettre minuscule et majuscule)
+	*/
+	var nb_chaque_caractere = Math.trunc(nb_caractere_mdp / caracteres.length);
+	var nb_chaque_caracteres = [];
+	var quotient = nb_caractere_mdp % caracteres.length;
+	for (var i = 0; i < caracteres.length; i++) {
+		if (quotient !== 0) {
+			nb_chaque_caracteres.push(nb_chaque_caractere + 1);
+			quotient--;
+		}
+		else {
+			nb_chaque_caracteres.push(nb_chaque_caractere);
+		}
+	}
+	/*
+	Sélection de caractère de différent type
+	*/
+	var caracteres_mdp = [];
+	for (var i = 0; i < caracteres.length; i++) {
+		for (var j = 0; j < nb_chaque_caracteres[i]; j++) {
+			caracteres_mdp.push(caractere_aleatoire(caracteres[i]));
+		}
+	}
+	/*
+	Création du mot de passe
+	*/
 	var mdp = "";
-	
-	while (tab.length > 0) {
-		var nb = Math.floor(Math.random()*tab.length);
-		mdp += tab[nb];
-		var nouveau_tab = [];
-		for (i = 0; i < tab.length; i++) {
+	while (caracteres_mdp.length > 0) {
+		var nb = Math.floor(Math.random()*caracteres_mdp.length);
+		mdp += caracteres_mdp[nb];
+		var nouveau_caracteres_mdp = [];
+		for (i = 0; i < caracteres_mdp.length; i++) {
 			if (i !== nb) {
-				nouveau_tab.push(tab[i]);
+				nouveau_caracteres_mdp.push(caracteres_mdp[i]);
 			}
 		}
-		tab = nouveau_tab;
+		caracteres_mdp = nouveau_caracteres_mdp;
 	}
+	/*
+	Renvoie du mot de passe généré
+	*/
 	return mdp;
 }
 
