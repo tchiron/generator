@@ -1,22 +1,22 @@
 Listes des erreurs que peut renvoyer le programme :
 
 TabCar-Und
-La variable du tableau de caractère est non-défini
+La variable du tableau de caractÃ¨re est non-dÃ©fini
 
 TabCar-NaA
-La variable du tableau de caractère n'est pas un tableau
+La variable du tableau de caractÃ¨re n'est pas un tableau
 
 TabCar-Low
-La variable du tableau de caractère ne contient pas assez de valeur
+La variable du tableau de caractÃ¨re ne contient pas assez de valeur
 
 TabCar-NaS
-Une valeur contenu dans la variable du tableau de caractère n'est pas une chaîne de caractère
+Une valeur contenu dans la variable du tableau de caractÃ¨re n'est pas une chaÃ®ne de caractÃ¨re
 
 TabCar-Emp
-Une partie contenu dans la variable du tableau de caractère est vide
+Une partie contenu dans la variable du tableau de caractÃ¨re est vide
 
 TabMes-Und
-La variable du tableau de message est non-défini
+La variable du tableau de message est non-dÃ©fini
 
 TabMes-NaA
 La variable du tableau de message n'est pas un tableau
@@ -25,13 +25,13 @@ TabMes-Low
 La variable du tableau de message ne contient pas assez de valeur
 
 TabMes-NaS
-Une valeur contenu dans la variable du tableau de message n'est pas une chaîne de caractère
+Une valeur contenu dans la variable du tableau de message n'est pas une chaÃ®ne de caractÃ¨re
 
 TabMes-Emp
 Une partie contenu dans la variable du tableau de message est vide
 
 NbCarMax-Low
-La valeur de la variable du nombre de caractère maximum est inférieure à celle de la variable du nombre de caractère minimum
+La valeur de la variable du nombre de caractÃ¨re maximum est infÃ©rieure Ã  celle de la variable du nombre de caractÃ¨re minimum
 
 
 Lexique :
