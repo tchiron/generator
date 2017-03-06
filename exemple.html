@@ -5,10 +5,25 @@
 		<link rel="stylesheet" href="style.css" />
 		<title>Exemple de formulaire pour le Générateur de mot de passe</title>
 		<script type="text/javascript" src="password_generator.js"></script>
+		<script type="text/javascript">
+			var tableau_de_caracteres = [
+				"0123456789",
+				"abcdefghijklmnopqrstuvwxyz",
+				"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+			];
+			
+			var tableau_de_messages = [
+				"Entrez le nombre de caratère de votre mot de passe :",
+				"Vous n'avez pas entré un nombre, \nVeuillez entrer le nombre de caratère de votre mot de passe :",
+				"Vous avez entré un nombre inférieur ou égal à 0, \nVeuillez entrer le nombre de caratère de votre mot de passe :",
+				"Vous avez entré un nombre de caractère trop grand, \nVeuillez entrer le nombre de caractère de votre mot de passe",
+				"Nous vous conseillons de noter le mot de passe sur un papier pour ne pas l'oublier."
+			];
+		</script>
 	</head>
 	<body>
 		<form name="exemple_formulaire">
-			<label for="mdp">Mot de passe : </label><input type="text" name="mdp" /><input type="button" value="Générer un mot de passe" onclick="generateur()" />
+			<label for="mdp">Mot de passe : </label><input type="text" name="mdp" /><input type="button" value="Générer un mot de passe" onclick="generator(tableau_de_caracteres, tableau_de_messages)" />
 		</form>
 	</body>
 </html>
