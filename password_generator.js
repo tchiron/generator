@@ -20,35 +20,51 @@ function generator(caracteres, messages, nb_caractere_min, nb_caractere_max, nb_
 	*/
 	if (Array.isArray(caracteres) === true && caracteres.length > 1) {
 		for (var i = 0; i < caracteres.length; i++) {
-			if (typeof caracteres[i] !== "string" || caracteres[i] === "") {
-				alert("L'une des valeurs de tableau_de_caracteres ne contient pas une chaîne de caractère ou est vide. Valeur : " + i);
+			if (typeof caracteres[i] !== "string") {
+				alert("TabCar-NaS");
+				erreur = true;
+			}
+			else if (caracteres[i] === "") {
+				alert("TabCar-Emp");
 				erreur = true;
 			}
 		}
 	}
 	else if (typeof caracteres === "undefined") {
-		alert("La variable tableau_de_caracteres est non-défini");
+		alert("TabCar-Und");
+		erreur = true;
+	}
+	else if (caracteres.length <= 1) {
+		alert("TabCar-Low");
 		erreur = true;
 	}
 	else {
-		alert("La variable tableau_de_caracteres n'est pas un tableau");
+		alert("TabCar-NaA");
 		erreur = true;
 	}
 	
 	if (Array.isArray(messages) === true && messages.length > 2) {
 		for (var i = 0; i < messages.length; i++) {
-			if (typeof messages[i] !== "string" || messages[i] === "") {
-				alert("L'une des valeurs de tableau_de_messages ne contient pas une chaîne de caractère ou est vide. Valeur : " + i);
+			if (typeof messages[i] !== "string") {
+				alert("TabMes-NaS");
+				erreur = true;
+			}
+			else if (messages[i] === "") {
+				alert("TabMes-Emp");
 				erreur = true;
 			}
 		}
 	}
 	else if (typeof messages === "undefined") {
-		alert("La variable tableau_de_messages est non-défini");
+		alert("TabMes-Und");
+		erreur = true;
+	}
+	else if (messages.length <= 2) {
+		alert("TabCar-Low");
 		erreur = true;
 	}
 	else {
-		alert("La variable tableau_de_messages n'est pas un tableau");
+		alert("TabMes-NaA");
 		erreur = true;
 	}
 	
@@ -60,7 +76,7 @@ function generator(caracteres, messages, nb_caractere_min, nb_caractere_max, nb_
 		nb_caractere_max = ""; // Ainsi, il n'y a pas de nombre maximal
 	}
 	else if (nb_caractere_max < nb_caractere_min) {
-		alert("Le nombre de caractère maximum ne peut être inférieur au nombre de caractère minimum");
+		alert("NbCarMax-Low");
 		erreur = true;
 	}
 	
