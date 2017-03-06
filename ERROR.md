@@ -33,7 +33,6 @@ Une valeur contenu dans la variable du tableau de message n'est pas une chaîne 
 * TabMes-Und :  
 La variable du tableau de message est non-défini
 
-
 ## Lexique :
 * NaA = Not a Array  
 * NaS = Not a String  
