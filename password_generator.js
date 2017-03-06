@@ -60,7 +60,7 @@ function generator(caracteres, messages, nb_caractere_min, nb_caractere_max, nb_
 		erreur = true;
 	}
 	else if (messages.length <= 2) {
-		alert("TabCar-Low");
+		alert("TabMes-Low");
 		erreur = true;
 	}
 	else {
