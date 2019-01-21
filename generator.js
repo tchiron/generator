@@ -10,7 +10,7 @@ let defaut_caracteres = [
  * @param  array    caracteres Tableau contenant les listes de caractère utilisé pour générer une chaîne. (Optionnal)
  * @return string	           Return a string or false if something went wrong.
  */
-function generator(taille, caracteres) {
+function generator(taille, caracteres = defaut_caracteres) {
 
 	if (typeof taille !== "number" || Number.isNaN(taille)) {
 		return false;
